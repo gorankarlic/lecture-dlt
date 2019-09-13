@@ -43,12 +43,12 @@ cd %HOMEPATH%/Desktop/node
 ### 4.1 Start mining
 
 ```sh
-docker-comppse build && docker-compose run --rm node
+docker-compose build && docker-compose run --rm node
 ```
 
 ### 4.2 Start a console
 
 ```sh
-docker-comppse build && docker-compose run --rm console
+docker-compose build && docker-compose run --rm console
 ```
 
