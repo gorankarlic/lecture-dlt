@@ -12,13 +12,13 @@ On Windows:
 
 ## 2. Clone this repository
 
-On Mac:
+On Mac, open the Terminal (`Terminal`) app and run:
 
 ```sh
 docker run -i -t --rm -v ~/Desktop/node:/git alpine/git clone https://github.com/gorankarlic/lecture-dlt.git
 ```
 
-On Windows:
+On Windows, open the Command Line (`cmd`) and run:
 
 Right-click Docker icon in the task bar, then click `Settings`, then `Shared drives`, then check `C`, then click `Apply` and enter your Windows password.
 
@@ -55,4 +55,4 @@ docker-compose build && docker-compose run --rm node
 docker-compose build && docker-compose run --rm console
 ```
 
-To experiment with the commands look at the documentation [https://web3js.readthedocs.io/en/v1.2.0/web3.html]().
+To experiment with the commands look at the documentation https://web3js.readthedocs.io/en/v1.2.0/web3.html.
