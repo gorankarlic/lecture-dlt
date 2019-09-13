@@ -16,7 +16,7 @@ services:
             context: .
             dockerfile: Dockerfile
         container_name: console
-        entrypoint: /bin/bash -c "qrencode -t ANSI 0x$$(cat account.txt) && echo Your account is 0x$$(cat account.txt) && geth --bootnodes enode://acf44e6cd39995c5870c8e3f37a88750706a0aeafde1c8c98414aa303df4911da975d41ba038371cc2c60d7b014c3be27d04bc7cf3355329991134b73bfadf47@68.183.67.158:30301 --cache 8192 --datadir node --ethash.dagdir node/dag --etherbase $$(cat account.txt) --gasprice 1 --mine --minerthreads 1 --networkid 127 --nousb --password password.txt --port 30303 --syncmode full --unlock $$(cat account.txt) --verbosity 0 console"
+        entrypoint: /bin/bash -c "qrencode -t ANSI 0x$$(cat account.txt) && echo Your account is 0x$$(cat account.txt) && geth --bootnodes enode://acf44e6cd39995c5870c8e3f37a88750706a0aeafde1c8c98414aa303df4911da975d41ba038371cc2c60d7b014c3be27d04bc7cf3355329991134b73bfadf47@68.183.67.158:30301 --cache 8192 --datadir node --ethash.dagdir node/dag --etherbase $$(cat account.txt) --gasprice 1 --mine --minerthreads 1 --networkid 996544096 --nousb --password password.txt --port 30303 --syncmode full --unlock $$(cat account.txt) --verbosity 0 console"
         image: console
         network_mode: host
         ports:
@@ -27,7 +27,7 @@ services:
             context: .
             dockerfile: Dockerfile
         container_name: node
-        entrypoint: /bin/bash -c "geth --bootnodes enode://acf44e6cd39995c5870c8e3f37a88750706a0aeafde1c8c98414aa303df4911da975d41ba038371cc2c60d7b014c3be27d04bc7cf3355329991134b73bfadf47@68.183.67.158:30301 --cache 8192 --datadir node --ethash.dagdir node/dag --etherbase $$(cat account.txt) --gasprice 1 --mine --minerthreads 1 --networkid 127 --nousb --password password.txt --port 30303 --syncmode full --unlock $$(cat account.txt)"
+        entrypoint: /bin/bash -c "qrencode -t ANSI 0x$$(cat account.txt) && echo Your account is 0x$$(cat account.txt) && geth --bootnodes enode://acf44e6cd39995c5870c8e3f37a88750706a0aeafde1c8c98414aa303df4911da975d41ba038371cc2c60d7b014c3be27d04bc7cf3355329991134b73bfadf47@68.183.67.158:30301 --cache 8192 --datadir node --ethash.dagdir node/dag --etherbase $$(cat account.txt) --gasprice 1 --mine --minerthreads 1 --networkid 996544096 --nousb --password password.txt --port 30303 --syncmode full --unlock $$(cat account.txt)"
         image: node
         network_mode: host
         ports:
