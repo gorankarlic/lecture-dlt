@@ -31,5 +31,5 @@ services:
         image: node
         network_mode: host
         ports:
-            - 30303:30303/tcp
-            - 30303:30303/udp
+            - 30304:30303/tcp
+            - 30304:30303/udp
