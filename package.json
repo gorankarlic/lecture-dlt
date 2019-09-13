@@ -1,0 +1,12 @@
+{
+    "author": "Goran Karlic",
+    "name": "lecture-dlt-node",
+    "license": "UNLICENSED",
+    "repository": "https://github.com/gorankarlic/lecture-dlt-node.git",
+    "version": "1.0.0",
+    "dependencies": {
+        "readline-sync": "1.4.9",
+        "solc": "0.5.11",
+        "web3": "1.2.1"
+    }
+}
