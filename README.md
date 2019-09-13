@@ -20,8 +20,11 @@ docker run -i -t --rm -v ~/Desktop/node:/git alpine/git clone https://github.com
 
 On Windows:
 
+Right-click Docker icon in the task bar, then click `Settings`, then `Shared drives`, then check `C`, then click `Apply` and enter your Windows password.
+
 ```sh
-docker run -i -t --rm -v "%HOMEPATH%/Desktop/node":/git alpine/git clone https://github.com/gorankarlic/lecture-dlt.git
+mkdir "C:\%HOMEPATH%\Desktop\node"
+docker run -i -t --rm -v "C:\%HOMEPATH%\Desktop\node":/git alpine/git clone https://github.com/gorankarlic/lecture-dlt.git
 ```
 
 ## 3. Change directory
@@ -29,13 +32,13 @@ docker run -i -t --rm -v "%HOMEPATH%/Desktop/node":/git alpine/git clone https:/
 On Mac:
 
 ```sh
-cd ~/Desktop/node
+cd ~/Desktop/node/lecture-dlt
 ```
 
 On Windows:
 
 ```sh
-cd %HOMEPATH%/Desktop/node
+cd "%HOMEPATH%\Desktop\node\lecture-dlt"
 ```
 
 ## 4. Start mining / exploring
