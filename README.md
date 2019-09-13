@@ -21,7 +21,7 @@ docker run -i -t --rm -v ~/Desktop/node:/git alpine/git clone https://github.com
 On Windows:
 
 ```sh
-docker run -i -t --rm -v "%HOMEPATH%/Desktop/node:/git" alpine/git clone https://github.com/gorankarlic/lecture-dlt.git
+docker run -i -t --rm -v "%HOMEPATH%/Desktop/node":/git alpine/git clone https://github.com/gorankarlic/lecture-dlt.git
 ```
 
 ## 3. Change directory
