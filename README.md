@@ -12,6 +12,11 @@ On Windows:
 
 ## 2. Clone this repository
 
+- If you did not clone the repository before then you need to clone it first
+- If you did the repository before then you need to update it
+
+### 2.1 Clone the repository
+
 On Mac, open the Terminal (`Terminal`) app and run:
 
 ```sh
@@ -25,6 +30,22 @@ Right-click Docker icon in the task bar, then click `Settings`, then `Shared dri
 ```sh
 mkdir "C:\%HOMEPATH%\Desktop\node"
 docker run -i -t --rm -v "C:\%HOMEPATH%\Desktop\node":/git alpine/git clone https://github.com/gorankarlic/lecture-dlt.git
+```
+
+### 2.2 Update the repository
+
+On Mac, open the Terminal (`Terminal`) app and run:
+
+```sh
+docker run -i -t --rm -v ~/Desktop/node/lecture-dlt:/git alpine/git fetch --all
+```
+
+On Windows, open the Command Line (`cmd`) and run:
+
+Right-click Docker icon in the task bar, then click `Settings`, then `Shared drives`, then check `C`, then click `Apply` and enter your Windows password.
+
+```sh
+docker run -i -t --rm -v "C:\%HOMEPATH%\Desktop\node\lecture-dlt":/git alpine/git fetch --all
 ```
 
 ## 3. Change directory
