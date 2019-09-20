@@ -76,4 +76,12 @@ docker-compose build && docker-compose run --rm node
 docker-compose build && docker-compose run --rm console
 ```
 
-To experiment with the commands look at the documentation [](https://github.com/ethereum/go-ethereum/wiki/Management-APIs).
+To experiment with the commands look at the documentation:
+
+- Management API (fully available in the Geth console)
+
+  [https://github.com/ethereum/go-ethereum/wiki/Management-APIs](https://github.com/ethereum/go-ethereum/wiki/Management-APIs)
+
+- JavaScript API (partially available in the Geth console, used to write apps)
+
+  [https://github.com/ethereum/wiki/wiki/JavaScript-API](https://github.com/ethereum/wiki/wiki/JavaScript-API)
