@@ -76,4 +76,4 @@ docker-compose build && docker-compose run --rm node
 docker-compose build && docker-compose run --rm console
 ```
 
-To experiment with the commands look at the documentation [https://github.com/ethereum/go-ethereum/wiki/Management-APIs]().
+To experiment with the commands look at the documentation [](https://github.com/ethereum/go-ethereum/wiki/Management-APIs).
