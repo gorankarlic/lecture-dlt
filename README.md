@@ -37,7 +37,7 @@ docker run -i -t --rm -v "C:\%HOMEPATH%\Desktop\node":/git alpine/git clone http
 On Mac, open the Terminal (`Terminal`) app and run:
 
 ```sh
-docker run -i -t --rm -v ~/Desktop/node/lecture-dlt:/git alpine/git fetch --all
+docker run -i -t --rm -v ~/Desktop/node/lecture-dlt:/git alpine/git pull --all
 ```
 
 On Windows, open the Command Line (`cmd`) and run:
@@ -45,7 +45,7 @@ On Windows, open the Command Line (`cmd`) and run:
 Right-click Docker icon in the task bar, then click `Settings`, then `Shared drives`, then check `C`, then click `Apply` and enter your Windows password.
 
 ```sh
-docker run -i -t --rm -v "C:\%HOMEPATH%\Desktop\node\lecture-dlt":/git alpine/git fetch --all
+docker run -i -t --rm -v "C:\%HOMEPATH%\Desktop\node\lecture-dlt":/git alpine/git pull --all
 ```
 
 ## 3. Change directory
