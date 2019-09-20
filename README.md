@@ -13,7 +13,7 @@ On Windows:
 ## 2. Clone this repository
 
 - If you did not clone the repository before then you need to clone it first
-- If you did the repository before then you need to update it
+- If you did clone the repository before then you need to fetch (i.e. update) it
 
 ### 2.1 Clone the repository
 
