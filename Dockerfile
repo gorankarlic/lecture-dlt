@@ -14,12 +14,14 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN apt-get install -y nodejs
 
 FROM nodejs AS node
+ADD boot.key .
 ADD genesis.json .
 ADD package.json .
 ADD password.txt .
+ADD static-nodes.json ./node/geth/static-nodes.json
 RUN geth account new --datadir node --password password.txt
 RUN cat node/keystore/$(ls node/keystore) | sed 's/.*"address":"\([^"]*\).*/\1\n/' > account.txt
-RUN npm install
+#RUN npm install
 
 FROM node AS node-pow
 EXPOSE 30303/tcp

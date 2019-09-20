@@ -38,7 +38,7 @@ cd ~/Desktop/node/lecture-dlt
 On Windows:
 
 ```sh
-cd "%HOMEPATH%\Desktop\node\lecture-dlt"
+cd "C:\%HOMEPATH%\Desktop\node\lecture-dlt"
 ```
 
 ## 4. Start mining / exploring
