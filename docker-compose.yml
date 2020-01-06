@@ -44,7 +44,7 @@ services:
             context: .
             dockerfile: Dockerfile
         container_name: node
-        entrypoint: /bin/bash -c "qrencode -t ANSI 0x$$(cat account.txt) && echo Your account is 0x$$(cat account.txt) && geth --bootnodes --cache 8192 --datadir node --ethash.dagdir node/dag --etherbase $$(cat account.txt) --gasprice 1 --mine --minerthreads 1 --networkid 996544096 --nousb --password password.txt --port 30303 --syncmode full --unlock $$(cat account.txt)"
+        entrypoint: /bin/bash -c "qrencode -t ANSI 0x$$(cat account.txt) && echo Your account is 0x$$(cat account.txt) && geth --cache 8192 --datadir node --ethash.dagdir node/dag --etherbase $$(cat account.txt) --gasprice 1 --mine --minerthreads 1 --networkid 996544096 --nousb --password password.txt --port 30303 --syncmode full --unlock $$(cat account.txt)"
         image: node
         network_mode: host
         ports:
