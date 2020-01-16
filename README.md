@@ -85,3 +85,19 @@ To experiment with the commands look at the documentation:
 - JavaScript API (partially available in the Geth console, used to write apps)
 
   [https://github.com/ethereum/wiki/wiki/JavaScript-API](https://github.com/ethereum/wiki/wiki/JavaScript-API)
+
+#### 4.2.1 Console cheat-sheet
+
+```sh
+eth.accounts
+eth.getBlock(7)
+
+eth.getBalance(eth.accounts[0])
+web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+
+web3.eth.sendTransaction({from:eth.accounts[0],to:eth.accounts[0],value:1})
+eth.getTransaction("0xce71b99944a4f0fa06649d6c236e717b18fde34b55a2e89924ad7c0d3bc8c710")
+
+eth.peers
+txpool
+```
