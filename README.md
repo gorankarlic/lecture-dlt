@@ -90,6 +90,7 @@ To experiment with the commands look at the documentation:
 
 ```sh
 eth.accounts
+eth.blockNumber
 eth.getBlock(7)
 
 eth.getBalance(eth.accounts[0])
