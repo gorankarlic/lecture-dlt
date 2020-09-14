@@ -53,6 +53,8 @@ Type the following command to show the Debian version:
 cat /etc/debian_version
 ```
 
+It should output `10.5`.
+
 ## 3. Install Ethereum client
 
 ### 3.1 Install `wget`
@@ -80,3 +82,31 @@ To unpack and install then downloaded program files run:
 ```sh
 cd && tar -xvf geth-alltools-linux-amd64-1.9.21-0287d548.tar.gz --exclude=COPYING --strip-components=1 && rm geth-alltools-linux-amd64-1.9.21-0287d548.tar.gz && chmod u+x * && mv * /usr/bin
 ```
+
+### 3.4 Verify result
+
+Type the following command to show the location of the `geth` program:
+
+```sh
+which geth
+```
+
+It should output `/usr/bin/geth`.
+
+## 4. "Look ma, I gots them blockchains!"
+
+### 4.1 Run your own Ethereum node
+
+You are now ready to participate in the Ethereum network. To start you local node run:
+
+```sh
+geth
+```
+
+If you follow the output, you will notice that your node will do the following:
+
+1. Find _peers_ 
+2. Once found, it will start downloading a local copy of the blockchain
+
+If you want to stop your node press `CTRL+C`.
+
