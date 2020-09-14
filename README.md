@@ -108,10 +108,12 @@ If you follow the output, you will notice that your node will do the following:
 1. Find _peers_ 
 2. Once found, it will start downloading a local copy of the blockchain
 
-> If it fails to find any peers then your local firewall or network or might be blocking the connection. Try following:
+> If it fails to find any peers, it might be because your local firewall or network is blocking the connections.
 > 
+> Try following:
+>
 > 1. Temporarily disable your firewall
-> 1. Use a less restrictive network, like your mobile phone hotspot
+> 1. Connect to a less restrictive network, like your mobile phone hotspot
 
 If you want to stop your node press `CTRL+C`.
 
