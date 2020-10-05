@@ -35,6 +35,7 @@ Open the Terminal (`Terminal`) app and run:
 ```sh
 docker run -i -t debian:latest
 ```
+
 ### 2.3 Result
 
 You will evenutually see a line similar to this:
@@ -117,3 +118,130 @@ If you follow the output, you will notice that your node will do the following:
 
 If you want to stop your node press `CTRL+C`.
 
+# Crypto Lab
+
+## 1. Install Docker
+
+On Mac:
+
+[https://download.docker.com/mac/stable/Docker.dmg](https://download.docker.com/mac/stable/Docker.dmg)
+
+On Windows:
+
+[https://download.docker.com/win/stable/Docker%20Desktop%20Installer.exe](https://download.docker.com/win/stable/Docker%20Desktop%20Installer.exe)
+
+## 2. Run Debian linux
+
+### 2.1 Mac
+
+Open the Terminal (`Terminal`) app and run:
+
+```sh
+docker run -i -t debian:latest
+```
+
+### 2.2 Windows
+
+#### 2.2.1 Instal Terminal app
+
+It is recommended that you install the Terminal app for Windows available at:
+
+[https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701)
+
+#### 2.2.2 Run
+
+Open the Terminal (`Terminal`) app and run:
+
+```sh
+docker run -i -t debian:latest
+```
+
+#### 2.2.2 Run
+
+Open the Terminal (`Terminal`) app and run:
+
+```sh
+docker run -i -t debian:latest
+```
+
+#### 2.2.3 Install OpenSSL
+
+Install the cryptographic library [OpenSSL](https://www.openssl.org):
+
+```sh
+apt-get install openssl
+```
+
+## 3. Symetric key cryptography
+
+## 3,1 Plaintext message
+
+## 3.1.1 Create a message file
+
+Create a file with a message:
+
+```sh
+echo Attack at 5:00 > message.txt
+```
+
+## 3.1.2 Read the message file
+
+Read the file with a message:
+
+```sh
+cat message.txt
+```
+
+## 3.2 Encryption and decryption
+
+## 3.2.1 Encrypt message
+
+Encrypt the message:
+
+```sh
+openssl enc -AES-256-CBC -base64 -in message.txt -out encrypted.txt -p -pass pass:password
+```
+
+## 3.2.2 Show encrypted ciphertext
+
+Show the encrypted ciphertext:
+
+```sh
+cat encrypted.txt
+```
+
+## 3.2.3 Decrypt the ciphertext
+
+Decrypt the ciphertext:
+
+```sh
+openssl enc -AES-256-CBC -base64 -in encrypted.txt -out decrypted.txt -p -pass pass:password -d
+```
+
+## 3.2.4 Show decrypted message
+
+Show the decrypted message:
+
+```sh
+cat decrypted.txt
+```
+
+# 4. Asymetric (a.k.a. public / private key) cryptography
+
+# 4.1 Create key pair
+
+# 4.1.1 Create a private key
+
+Create a private key:
+
+```sh
+openssl genpkey -algorithm RSA -out private.txt
+```
+
+# 4.1.2 Derive public key
+
+Derive a public key:
+
+```sh
+openssl rsa -in private.txt -pubout > public.txt
+```
