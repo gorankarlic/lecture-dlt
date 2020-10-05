@@ -156,20 +156,12 @@ Open the Terminal (`Terminal`) app and run:
 docker run -i -t debian:latest
 ```
 
-#### 2.2.2 Run
-
-Open the Terminal (`Terminal`) app and run:
-
-```sh
-docker run -i -t debian:latest
-```
-
 #### 2.2.3 Install OpenSSL
 
 Install the cryptographic library [OpenSSL](https://www.openssl.org):
 
 ```sh
-apt-get install openssl
+apt-get update && apt-get install openssl
 ```
 
 ## 3. Symetric key cryptography
