@@ -1,4 +1,4 @@
-# Blockchain Lab
+# ⛓️ Blockchain Lab
 
 ## 1. Install Docker
 
@@ -36,7 +36,7 @@ Open the Terminal (`Terminal`) app and run:
 docker run -i -t debian:latest
 ```
 
-### 2.3 Result
+### 2.3 Command prompt
 
 You will evenutually see a line similar to this:
 
@@ -46,7 +46,7 @@ root@5555b7f58ebe:/#
 
 This is the _command prompt_ of the Debian operating system that is now running within a container on your computer.
 
-#### 2.3.1 Verify result
+#### 2.3.1 Verify
  
 Type the following command to show the Debian version:
 
@@ -54,7 +54,7 @@ Type the following command to show the Debian version:
 cat /etc/debian_version
 ```
 
-It should output `10.5`.
+It should output `10.7`.
 
 ## 3. Install Ethereum client
 
@@ -73,7 +73,7 @@ apt-get update && apt-get install -y wget
 To download `geth` run:
 
 ```sh
-cd && wget https://gethstore.blob.core.windows.net/builds/geth-alltools-linux-amd64-1.9.21-0287d548.tar.gz
+cd && wget https://gethstore.blob.core.windows.net/builds/geth-alltools-linux-amd64-1.9.25-e7872729.tar.gz
 ```
 
 ### 3.3 Install `geth`
@@ -81,7 +81,7 @@ cd && wget https://gethstore.blob.core.windows.net/builds/geth-alltools-linux-am
 To unpack and install then downloaded program files run:
 
 ```sh
-cd && tar -xvf geth-alltools-linux-amd64-1.9.21-0287d548.tar.gz --exclude=COPYING --strip-components=1 && rm geth-alltools-linux-amd64-1.9.21-0287d548.tar.gz && chmod u+x * && mv * /usr/bin
+cd && tar -xvf geth-alltools-linux-amd64-1.9.25-e7872729.tar.gz --exclude=COPYING --strip-components=1 && rm geth-alltools-linux-amd64-1.9.25-e7872729.tar.gz && chmod u+x * && mv * /usr/bin
 ```
 
 ### 3.4 Verify result
@@ -113,13 +113,36 @@ If you follow the output, you will notice that your node will do the following:
 > 
 > Try following:
 >
-> 1. Temporarily disable the firewall in the operating system settings
 > 1. Connect to a less restrictive network, like your mobile phone hotspot
+> 1. ⚠️ Temporarily disable the firewall in the operating system settings (do not forget to enable the firewall after lab session)
 
 If you want to stop your node press `CTRL+C`.
 
+### 4.1 Interact with the blockchain using your Ethereum node
 
-# Crypto Lab
+To interact with the blockchain using your Ethereum node run:
+
+```sh
+geth --verbosity 1 console
+```
+
+### 4.1.1 View block headers
+
+To view the headers of block number `3`:
+
+```
+web3.eth.getBlock(3)
+```
+
+### 4.1.2 View some funny stuff
+
+```
+web3.toAscii(web3.eth.getBlock(14000).extraData)
+```
+
+Enter `exit` to exit from the console.
+
+# 𓀄 Crypto Lab
 
 ## 1. Install Docker
 
@@ -157,7 +180,7 @@ Open the Terminal (`Terminal`) app and run:
 docker run -i -t debian:latest
 ```
 
-#### 2.2.3 Install OpenSSL
+#### 2.3 Install OpenSSL
 
 Install the cryptographic library [OpenSSL](https://www.openssl.org):
 
@@ -165,7 +188,7 @@ Install the cryptographic library [OpenSSL](https://www.openssl.org):
 apt-get update && apt-get install openssl
 ```
 
-## 3. Symetric key cryptography
+## 3. 🔑 Symetric key cryptography
 
 Encrypt and decrypt a plaintext message with symetric key cryptography.
 
@@ -221,7 +244,7 @@ Show the decrypted message:
 cat decrypted.txt
 ```
 
-## 4. Asymetric (a.k.a. public / private key) cryptography using RSA
+## 4. 🔐 Asymetric (a.k.a. public / private key) cryptography using RSA
 
 Encrypt and decrypt a plaintext message using the RSA (Rivest–Shamir–Adleman) public / private key cryptography.
 
@@ -309,7 +332,7 @@ Show the decrypted message:
 cat decrypted.txt
 ```
 
-## 5. Asymetric (a.k.a. public / private key) cryptography using EC
+## 5. 🔏Asymetric (a.k.a. public / private key) cryptography using EC
 
 Sign and verify a plaintext message using EC (Elliptic-curve) public / private key cryptography.
 
