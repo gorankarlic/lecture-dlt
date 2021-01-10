@@ -1,4 +1,4 @@
-# WHU Blockchain
+# Blockchain Lab
 
 ## 1. Install Docker
 
@@ -118,6 +118,7 @@ If you follow the output, you will notice that your node will do the following:
 
 If you want to stop your node press `CTRL+C`.
 
+
 # Crypto Lab
 
 ## 1. Install Docker
@@ -166,7 +167,9 @@ apt-get update && apt-get install openssl
 
 ## 3. Symetric key cryptography
 
-## 3,1 Plaintext message
+Encrypt and decrypt a plaintext message with symetric key cryptography.
+
+## 3.1 Plaintext message
 
 ## 3.1.1 Create a message file
 
@@ -191,7 +194,7 @@ cat message.txt
 Encrypt the message:
 
 ```sh
-openssl enc -AES-256-CBC -base64 -in message.txt -out encrypted.txt -p -pass pass:password
+openssl enc -AES-256-CBC -base64 -pbkdf2 -in message.txt -out encrypted.txt -p -pass pass:password
 ```
 
 ## 3.2.2 Show encrypted ciphertext
@@ -207,7 +210,7 @@ cat encrypted.txt
 Decrypt the ciphertext:
 
 ```sh
-openssl enc -AES-256-CBC -base64 -in encrypted.txt -out decrypted.txt -p -pass pass:password -d
+openssl enc -AES-256-CBC -base64 -pbkdf2 -in encrypted.txt -out decrypted.txt -p -pass pass:password -d
 ```
 
 ## 3.2.4 Show decrypted message
@@ -218,22 +221,188 @@ Show the decrypted message:
 cat decrypted.txt
 ```
 
-# 4. Asymetric (a.k.a. public / private key) cryptography
+# 4. Asymetric (a.k.a. public / private key) cryptography using RSA
 
-# 4.1 Create key pair
+Encrypt and decrypt a plaintext message using the RSA (Rivest–Shamir–Adleman) public / private key cryptography.
 
-# 4.1.1 Create a private key
+## 4.1 Plaintext message
+
+## 4.1.1 Create a message file
+
+Create a file with a message:
+
+```sh
+echo Retreat at 6:00 > message.txt
+```
+
+## 4.1.2 Read the message file
+
+Read the file with a message:
+
+```sh
+cat message.txt
+```
+
+# 4.2 Create a RSA key pair
+
+# 4.2.1 Create a private key
 
 Create a private key:
 
 ```sh
 openssl genpkey -algorithm RSA -out private.txt
 ```
+# 4.2.1 View the private key
 
-# 4.1.2 Derive public key
+View the created private key:
+
+```sh
+cat private.txt
+```
+
+# 4.2.3 Derive public key
 
 Derive a public key:
 
 ```sh
-openssl rsa -in private.txt -pubout > public.txt
+openssl rsa -pubout -in private.txt -out public.txt
+```
+# 4.2.4 View the public key
+
+View the created public key:
+
+```sh
+cat public.txt
+```
+
+## 4.3 Encryption and decryption
+
+## 4.3.1 Encrypt message
+
+Encrypt the message using the public key:
+
+```sh
+openssl rsautl -encrypt -pubin -inkey public.txt -in message.txt -out encrypted.bin
+```
+
+## 4.3.2 Show encrypted ciphertext
+
+Show the encrypted ciphertext:
+
+```sh
+base64 encrypted.bin
+```
+
+## 4.3.3 Decrypt the ciphertext
+
+Decrypt the ciphertext using the private key:
+
+```sh
+openssl rsautl -decrypt -inkey private.txt -in encrypted.bin -out decrypted.txt
+```
+
+## 4.3.4 Show decrypted message
+
+Show the decrypted message:
+
+```sh
+cat decrypted.txt
+```
+
+# 5. Asymetric (a.k.a. public / private key) cryptography using EC
+
+Sign and verify a plaintext message using EC (Elliptic-curve) public / private key cryptography.
+
+## 5.1 Plaintext message
+
+## 5.1.1 Create a message file
+
+Create a file with a message:
+
+```sh
+echo Send 1 million USD to John Smith > message.txt
+```
+
+## 5.1.2 Read the message file
+
+Read the file with a message:
+
+```sh
+cat message.txt
+```
+
+# 5.2 Create a EC key pair
+
+# 5.2.1 Create a private key
+
+Create a private key:
+
+```sh
+openssl ecparam -name secp256k1 -genkey -noout -out private.txt
+```
+
+# 5.2.2 View the private key
+
+View the created private key:
+
+```sh
+cat private.txt
+```
+
+# 5.2.3 Derive public key
+
+Derive a public key:
+
+```sh
+openssl ec -pubout -in private.txt -out public.txt
+```
+
+# 5.2.4 View the public key
+
+View the created public key:
+
+```sh
+cat public.txt
+```
+
+## 5.3 Sign and verify
+
+## 5.3.1 Sign message
+
+Sign the message using the private key:
+
+```sh
+openssl dgst -sha256 -sign private.txt -out signature.bin message.txt
+```
+
+## 5.3.2 Show signature
+
+Show the message signature:
+
+```sh
+base64 signature.bin
+```
+
+## 5.3.3 Verify the signature
+
+Verify the signature using the public key:
+
+```sh
+openssl dgst -sha256 -verify public.txt -signature signature.bin message.txt
+```
+
+## 5.3.4 Alter message
+
+Alter the message:
+
+```sh
+echo Send 2 million USD to John Smith > message.txt
+```
+
+## 5.3.5 Verify the signature again 
+
+Verify the signature using the public key:
+
+```sh
+openssl dgst -sha256 -verify public.txt -signature signature.bin message.txt
 ```
