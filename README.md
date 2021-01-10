@@ -169,9 +169,9 @@ apt-get update && apt-get install openssl
 
 Encrypt and decrypt a plaintext message with symetric key cryptography.
 
-## 3.1 Plaintext message
+### 3.1 Plaintext message
 
-## 3.1.1 Create a message file
+#### 3.1.1 Create a message file
 
 Create a file with a message:
 
@@ -179,7 +179,7 @@ Create a file with a message:
 echo Attack at 5:00 > message.txt
 ```
 
-## 3.1.2 Read the message file
+#### 3.1.2 Read the message file
 
 Read the file with a message:
 
@@ -187,9 +187,9 @@ Read the file with a message:
 cat message.txt
 ```
 
-## 3.2 Encryption and decryption
+### 3.2 Encryption and decryption
 
-## 3.2.1 Encrypt message
+#### 3.2.1 Encrypt message
 
 Encrypt the message:
 
@@ -197,7 +197,7 @@ Encrypt the message:
 openssl enc -AES-256-CBC -base64 -pbkdf2 -in message.txt -out encrypted.txt -p -pass pass:password
 ```
 
-## 3.2.2 Show encrypted ciphertext
+#### 3.2.2 Show encrypted ciphertext
 
 Show the encrypted ciphertext:
 
@@ -205,7 +205,7 @@ Show the encrypted ciphertext:
 cat encrypted.txt
 ```
 
-## 3.2.3 Decrypt the ciphertext
+#### 3.2.3 Decrypt the ciphertext
 
 Decrypt the ciphertext:
 
@@ -213,7 +213,7 @@ Decrypt the ciphertext:
 openssl enc -AES-256-CBC -base64 -pbkdf2 -in encrypted.txt -out decrypted.txt -p -pass pass:password -d
 ```
 
-## 3.2.4 Show decrypted message
+#### 3.2.4 Show decrypted message
 
 Show the decrypted message:
 
@@ -221,13 +221,13 @@ Show the decrypted message:
 cat decrypted.txt
 ```
 
-# 4. Asymetric (a.k.a. public / private key) cryptography using RSA
+## 4. Asymetric (a.k.a. public / private key) cryptography using RSA
 
 Encrypt and decrypt a plaintext message using the RSA (Rivest–Shamir–Adleman) public / private key cryptography.
 
-## 4.1 Plaintext message
+### 4.1 Plaintext message
 
-## 4.1.1 Create a message file
+#### 4.1.1 Create a message file
 
 Create a file with a message:
 
@@ -235,7 +235,7 @@ Create a file with a message:
 echo Retreat at 6:00 > message.txt
 ```
 
-## 4.1.2 Read the message file
+#### 4.1.2 Read the message file
 
 Read the file with a message:
 
@@ -243,16 +243,16 @@ Read the file with a message:
 cat message.txt
 ```
 
-# 4.2 Create a RSA key pair
+### 4.2 Create a RSA key pair
 
-# 4.2.1 Create a private key
+#### 4.2.1 Create a private key
 
 Create a private key:
 
 ```sh
 openssl genpkey -algorithm RSA -out private.txt
 ```
-# 4.2.1 View the private key
+#### 4.2.1 View the private key
 
 View the created private key:
 
@@ -260,14 +260,14 @@ View the created private key:
 cat private.txt
 ```
 
-# 4.2.3 Derive public key
+#### 4.2.3 Derive public key
 
 Derive a public key:
 
 ```sh
 openssl rsa -pubout -in private.txt -out public.txt
 ```
-# 4.2.4 View the public key
+#### 4.2.4 View the public key
 
 View the created public key:
 
@@ -275,9 +275,9 @@ View the created public key:
 cat public.txt
 ```
 
-## 4.3 Encryption and decryption
+### 4.3 Encryption and decryption
 
-## 4.3.1 Encrypt message
+#### 4.3.1 Encrypt message
 
 Encrypt the message using the public key:
 
@@ -285,7 +285,7 @@ Encrypt the message using the public key:
 openssl rsautl -encrypt -pubin -inkey public.txt -in message.txt -out encrypted.bin
 ```
 
-## 4.3.2 Show encrypted ciphertext
+#### 4.3.2 Show encrypted ciphertext
 
 Show the encrypted ciphertext:
 
@@ -293,7 +293,7 @@ Show the encrypted ciphertext:
 base64 encrypted.bin
 ```
 
-## 4.3.3 Decrypt the ciphertext
+#### 4.3.3 Decrypt the ciphertext
 
 Decrypt the ciphertext using the private key:
 
@@ -301,7 +301,7 @@ Decrypt the ciphertext using the private key:
 openssl rsautl -decrypt -inkey private.txt -in encrypted.bin -out decrypted.txt
 ```
 
-## 4.3.4 Show decrypted message
+#### 4.3.4 Show decrypted message
 
 Show the decrypted message:
 
@@ -309,13 +309,13 @@ Show the decrypted message:
 cat decrypted.txt
 ```
 
-# 5. Asymetric (a.k.a. public / private key) cryptography using EC
+## 5. Asymetric (a.k.a. public / private key) cryptography using EC
 
 Sign and verify a plaintext message using EC (Elliptic-curve) public / private key cryptography.
 
-## 5.1 Plaintext message
+### 5.1 Plaintext message
 
-## 5.1.1 Create a message file
+#### 5.1.1 Create a message file
 
 Create a file with a message:
 
@@ -323,7 +323,7 @@ Create a file with a message:
 echo Send 1 million USD to John Smith > message.txt
 ```
 
-## 5.1.2 Read the message file
+#### 5.1.2 Read the message file
 
 Read the file with a message:
 
@@ -331,9 +331,9 @@ Read the file with a message:
 cat message.txt
 ```
 
-# 5.2 Create a EC key pair
+### 5.2 Create a EC key pair
 
-# 5.2.1 Create a private key
+#### 5.2.1 Create a private key
 
 Create a private key:
 
@@ -341,7 +341,7 @@ Create a private key:
 openssl ecparam -name secp256k1 -genkey -noout -out private.txt
 ```
 
-# 5.2.2 View the private key
+#### 5.2.2 View the private key
 
 View the created private key:
 
@@ -349,7 +349,7 @@ View the created private key:
 cat private.txt
 ```
 
-# 5.2.3 Derive public key
+#### 5.2.3 Derive public key
 
 Derive a public key:
 
@@ -357,7 +357,7 @@ Derive a public key:
 openssl ec -pubout -in private.txt -out public.txt
 ```
 
-# 5.2.4 View the public key
+#### 5.2.4 View the public key
 
 View the created public key:
 
@@ -365,9 +365,9 @@ View the created public key:
 cat public.txt
 ```
 
-## 5.3 Sign and verify
+### 5.3 Sign and verify
 
-## 5.3.1 Sign message
+#### 5.3.1 Sign message
 
 Sign the message using the private key:
 
@@ -375,7 +375,7 @@ Sign the message using the private key:
 openssl dgst -sha256 -sign private.txt -out signature.bin message.txt
 ```
 
-## 5.3.2 Show signature
+#### 5.3.2 Show signature
 
 Show the message signature:
 
@@ -383,7 +383,7 @@ Show the message signature:
 base64 signature.bin
 ```
 
-## 5.3.3 Verify the signature
+#### 5.3.3 Verify the signature
 
 Verify the signature using the public key:
 
@@ -391,7 +391,7 @@ Verify the signature using the public key:
 openssl dgst -sha256 -verify public.txt -signature signature.bin message.txt
 ```
 
-## 5.3.4 Alter message
+#### 5.3.4 Alter message
 
 Alter the message:
 
@@ -399,7 +399,7 @@ Alter the message:
 echo Send 2 million USD to John Smith > message.txt
 ```
 
-## 5.3.5 Verify the signature again 
+#### 5.3.5 Verify the signature again 
 
 Verify the signature using the public key:
 
