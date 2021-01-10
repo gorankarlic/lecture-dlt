@@ -118,15 +118,15 @@ If you follow the output, you will notice that your node will do the following:
 
 If you want to stop your node press `CTRL+C`.
 
-### 4.1 Interact with the blockchain using your Ethereum node
+### 4.2 Interact with the blockchain using your Ethereum node CLI
 
-To interact with the blockchain using your Ethereum node run:
+To interact with the blockchain using your Ethereum node's CLI (command line interface a.k.a. console) run:
 
 ```sh
 geth --verbosity 1 console
 ```
 
-### 4.1.1 View block headers
+### 4.2.1 View block headers
 
 To view the headers of block number `3`:
 
@@ -134,7 +134,9 @@ To view the headers of block number `3`:
 web3.eth.getBlock(3)
 ```
 
-### 4.1.2 View some funny stuff
+Commands are explained in the [Web3 documentation](https://github.com/ChainSafe/web3.js/blob/0.20.7/DOCUMENTATION.md#web3ethgetblock).
+
+### 4.2.2 View some funny stuff in block number 14000
 
 ```
 web3.toAscii(web3.eth.getBlock(14000).extraData)
