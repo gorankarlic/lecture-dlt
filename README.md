@@ -144,7 +144,7 @@ web3.toAscii(web3.eth.getBlock(14000).extraData)
 
 Enter `exit` to exit from the console.
 
-# 𓀄 Crypto Lab
+# ✉️ Crypto Lab
 
 ## 1. Install Docker
 
