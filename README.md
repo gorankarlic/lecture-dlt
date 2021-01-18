@@ -101,7 +101,7 @@ It should output `/usr/bin/geth`.
 You are now ready to participate in the Ethereum network. To start you local node run:
 
 ```sh
-geth
+geth --syncmode light
 ```
 
 If you follow the output, you will notice that your node will do the following:
@@ -123,39 +123,53 @@ If you want to stop your node press `CTRL+C`.
 To interact with the blockchain using your Ethereum node's CLI (command line interface a.k.a. console) run:
 
 ```sh
-geth --verbosity 1 console
+geth --syncmode light --verbosity 1 console
 ```
 
-### 4.2.1 View block headers
+### 4.2.1 View peers
+
+To view the peer nodes that you are currently connected to:
+
+```
+admin.peers
+```
+
+### 4.2.2 View block headers
 
 To view the headers of block number `3`:
 
 ```
-web3.eth.getBlock(3)
+eth.getBlock(3)
 ```
 
 Commands are explained in the [Web3 documentation](https://github.com/ChainSafe/web3.js/blob/0.20.7/DOCUMENTATION.md#web3ethgetblock).
 
-### 4.2.2 View some funny stuff in block number 14000
+### 4.2.3 View some funny stuff in block number 14000
 
 ```
 web3.toAscii(web3.eth.getBlock(14000).extraData)
 ```
 
-### 4.2.3 Exit the Geth console
+### 4.2.4 Dive deeper into block transactions
+
+Take a look at block 1000000:
+
+```
+eth.getBlock(1000000)
+```
+
+Block 1000000 has two transactions. Take a look at the first transaction in that block:
+
+```
+eth.getTransaction("0xea1093d492a1dcb1bef708f771a99a96ff05dcab81ca76c31940300177fcf49f")
+```
+
+### 4.2.6 Exit the Geth console
 
 Exit the console:
 
 ```
 exit
-```
-
-### 4.2.4 Create a new wallet
-
-Create a new walet:
-
-```
-geth account new
 ```
 
 # ✉️ Crypto Lab
