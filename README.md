@@ -142,7 +142,21 @@ Commands are explained in the [Web3 documentation](https://github.com/ChainSafe/
 web3.toAscii(web3.eth.getBlock(14000).extraData)
 ```
 
-Enter `exit` to exit from the console.
+### 4.2.3 Exit the Geth console
+
+Exit the console:
+
+```
+exit
+```
+
+### 4.2.4 Create a new wallet
+
+Create a new walet:
+
+```
+geth account new
+```
 
 # ✉️ Crypto Lab
 
