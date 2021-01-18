@@ -146,8 +146,16 @@ Commands are explained in the [Web3 documentation](https://github.com/ChainSafe/
 
 ### 4.2.3 View some funny stuff in block number 14000
 
+Block number `14000` has an interesting message:
+
 ```
-web3.toAscii(web3.eth.getBlock(14000).extraData)
+web3.toAscii(eth.getBlock(14000).extraData)
+```
+
+Now take look at the so called _extra data_ in the latest block:
+
+```
+web3.toAscii(eth.getBlock(eth.blockNumber).extraData)
 ```
 
 ### 4.2.4 Dive deeper into block transactions
