@@ -152,16 +152,24 @@ web3.toAscii(web3.eth.getBlock(14000).extraData)
 
 ### 4.2.4 Dive deeper into block transactions
 
-Take a look at block 1000000:
+Take a look at block `1000000`:
 
 ```
 eth.getBlock(1000000)
 ```
 
-Block 1000000 has two transactions. Take a look at the first transaction in that block:
+Block `1000000` has two transactions. Take a look at the first transaction in that block:
 
 ```
 eth.getTransaction("0xea1093d492a1dcb1bef708f771a99a96ff05dcab81ca76c31940300177fcf49f")
+```
+
+### 4.2.5 Create a new account
+
+Create a new account:
+
+```
+personal.newAccount()
 ```
 
 ### 4.2.6 Exit the Geth console
