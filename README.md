@@ -126,6 +126,8 @@ To interact with the blockchain using your Ethereum node's CLI (command line int
 geth --syncmode light --verbosity 1 console
 ```
 
+You can find the reference for the console commands in the [Web3 documentation](https://web3js.readthedocs.io/en/v1.2.11/).
+
 ### 4.2.1 View peers
 
 To view the peer nodes that you are currently connected to:
@@ -141,8 +143,6 @@ To view the headers of block number `3`:
 ```
 eth.getBlock(3)
 ```
-
-Commands are explained in the [Web3 documentation](https://github.com/ChainSafe/web3.js/blob/0.20.7/DOCUMENTATION.md#web3ethgetblock).
 
 ### 4.2.3 View some funny stuff in block number 14000
 
