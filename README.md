@@ -172,7 +172,7 @@ It should output `/usr/bin/geth`.
 You are now ready to participate in the Ethereum network. To start you local node run:
 
 ```sh
-geth --syncmode light
+geth
 ```
 
 If you follow the output, you will notice that your node will do the following:
@@ -197,35 +197,55 @@ To interact with the blockchain using your Ethereum node's CLI (command line int
 geth --syncmode light --verbosity 1 console
 ```
 
-You can find the reference for the console commands in the [Web3 documentation](https://web3js.readthedocs.io/en/v1.2.11/).
+> You can find the reference for the console commands in the [Web3 documentation](https://web3js.readthedocs.io/en/v1.2.11/).
 
 ### 4.2.1 View peers
 
 To view the peer nodes that you are currently connected to:
 
-```
+```js
 admin.peers
 ```
 
-### 4.2.2 View block headers
+You will notice that each peer has a remote IP address (here the IP address is `94.176.237.140`):
 
-To view the headers of block number `3`:
-
+```js
+remoteAddress: "94.176.237.140:30303"
 ```
+
+You can query the peer's IP address using a [Geolocation tool](https://tools.keycdn.com/geo) to find out where they are.
+
+### 4.2.2 View blocks
+
+Take a look at block number `3`:
+
+```js
 eth.getBlock(3)
+```
+
+Take a look at the latest block number:
+
+```js
+eth.blockNumber
+```
+
+Take a look at the latest block:
+
+```js
+eth.getBlock(eth.blockNumber)
 ```
 
 ### 4.2.3 View some funny stuff in block number 14000
 
-Block number `14000` has an interesting message:
+Block number `14000` has an interesting message in it's _extra data_:
 
-```
+```js
 web3.toAscii(eth.getBlock(14000).extraData)
 ```
 
-Now take look at the so called _extra data_ in the latest block:
+Now take look at the _extra data_ in the latest block:
 
-```
+```js
 web3.toAscii(eth.getBlock(eth.blockNumber).extraData)
 ```
 
@@ -233,21 +253,27 @@ web3.toAscii(eth.getBlock(eth.blockNumber).extraData)
 
 Take a look at block `1000000`:
 
-```
+```js
 eth.getBlock(1000000)
 ```
 
 Block `1000000` has two transactions. Take a look at the first transaction in that block:
 
-```
+```js
 eth.getTransaction("0xea1093d492a1dcb1bef708f771a99a96ff05dcab81ca76c31940300177fcf49f")
+```
+
+Take a look at how much Ether the account that mined the last block has:
+
+```js
+web3.fromWei(eth.getBalance(eth.getBlock(eth.blockNumber).miner), "Ether")
 ```
 
 ### 4.2.5 Create a new account
 
 Create a new account:
 
-```
+```js
 personal.newAccount()
 ```
 
@@ -255,7 +281,7 @@ personal.newAccount()
 
 Exit the console:
 
-```
+```js
 exit
 ```
 
