@@ -25,6 +25,7 @@ contract Piggybank
      */
     receive() external payable
     {
+        require(msg.value < 1 ether);
     }
 
     /**
