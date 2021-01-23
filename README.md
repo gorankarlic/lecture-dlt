@@ -12,7 +12,7 @@
     + [3.2 Download `geth`](#32-download--geth-)
     + [3.3 Install `geth`](#33-install--geth-)
     + [3.4 Verify result](#34-verify-result)
-  * [4. 🥨 "Look ma, I gots them blockchains!"](#4--look-ma--i-gots-them-blockchains--)
+  * [4. 🥨 "Look ma, I gots them blockchains!"](#4---look-ma--i-gots-them-blockchains--)
     + [4.1 Run your own Ethereum node](#41-run-your-own-ethereum-node)
     + [4.2 Interact with the blockchain using your Ethereum node CLI](#42-interact-with-the-blockchain-using-your-ethereum-node-cli)
     + [4.2.1 View peers](#421-view-peers)
@@ -328,7 +328,7 @@ docker run -it debian:latest
 Install the cryptographic library [OpenSSL](https://www.openssl.org):
 
 ```sh
-apt-get update && apt-get install openssl
+apt-get update && apt-get install -y openssl
 ```
 
 ## 3. 🔑 Symetric key cryptography
@@ -504,7 +504,7 @@ cat message.txt
 Create a private key:
 
 ```sh
-openssl ecparam -name secp256k1 -genkey -noout -out private.txt
+openssl ecparam -name secp256k1 -genkey -out private.txt
 ```
 
 #### 5.2.2 View the private key
