@@ -504,7 +504,7 @@ cat message.txt
 Create a private key:
 
 ```sh
-openssl ecparam -name secp256k1 -genkey -out private.txt
+openssl ecparam -name secp256k1 -genkey -noout -out private.txt
 ```
 
 #### 5.2.2 View the private key
