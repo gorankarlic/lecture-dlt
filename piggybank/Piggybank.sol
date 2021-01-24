@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity >=0.6.0 <0.7.0;
+pragma solidity >=0.8.0;
 
 /**
  * Piggybank contract that allows spending if savings are > 1 ETH
@@ -15,9 +15,9 @@ contract Piggybank
     /**
      * Creates a new contract.
      */
-    constructor() public
+    constructor()
     {
-        owner = msg.sender;
+        owner = payable(msg.sender);
     }
 
     /**
@@ -25,7 +25,6 @@ contract Piggybank
      */
     receive() external payable
     {
-        require(msg.value < 1 ether);
     }
 
     /**
