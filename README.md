@@ -1,74 +1,3 @@
-- [⛓️ Blockchain Lab](#---blockchain-lab)
-  * [1. Install Docker](#1-install-docker)
-  * [2. Run Debian linux](#2-run-debian-linux)
-    + [2.1 Mac](#21-mac)
-    + [2.2 Windows](#22-windows)
-      - [2.2.1 Instal Terminal app](#221-instal-terminal-app)
-      - [2.2.2 Run](#222-run)
-    + [2.3 Command prompt](#23-command-prompt)
-      - [2.3.1 Verify](#231-verify)
-  * [3. Install Ethereum client](#3-install-ethereum-client)
-    + [3.1 Install `wget`](#31-install--wget-)
-    + [3.2 Download `geth`](#32-download--geth-)
-    + [3.3 Install `geth`](#33-install--geth-)
-    + [3.4 Verify result](#34-verify-result)
-  * [4. 🥨 "Look ma, I gots them blockchains!"](#4---look-ma--i-gots-them-blockchains--)
-    + [4.1 Run your own Ethereum node](#41-run-your-own-ethereum-node)
-    + [4.2 Interact with the blockchain using your Ethereum node CLI](#42-interact-with-the-blockchain-using-your-ethereum-node-cli)
-    + [4.2.1 View peers](#421-view-peers)
-    + [4.2.2 View block headers](#422-view-block-headers)
-    + [4.2.3 View some funny stuff in block number 14000](#423-view-some-funny-stuff-in-block-number-14000)
-    + [4.2.4 Dive deeper into block transactions](#424-dive-deeper-into-block-transactions)
-    + [4.2.5 Create a new account](#425-create-a-new-account)
-    + [4.2.6 Exit the Geth console](#426-exit-the-geth-console)
-- [✉️ Crypto Lab](#---crypto-lab)
-  * [1. Install Docker](#1-install-docker-1)
-  * [2. Run Debian linux](#2-run-debian-linux-1)
-    + [2.1 Mac](#21-mac-1)
-    + [2.2 Windows](#22-windows-1)
-      - [2.2.1 Instal Terminal app](#221-instal-terminal-app-1)
-      - [2.2.2 Run](#222-run-1)
-      - [2.3 Install OpenSSL](#23-install-openssl)
-  * [3. 🔑 Symetric key cryptography](#3----symetric-key-cryptography)
-    + [3.1 Plaintext message](#31-plaintext-message)
-      - [3.1.1 Create a message file](#311-create-a-message-file)
-      - [3.1.2 Read the message file](#312-read-the-message-file)
-    + [3.2 Encryption and decryption](#32-encryption-and-decryption)
-      - [3.2.1 Encrypt message](#321-encrypt-message)
-      - [3.2.2 Show encrypted ciphertext](#322-show-encrypted-ciphertext)
-      - [3.2.3 Decrypt the ciphertext](#323-decrypt-the-ciphertext)
-      - [3.2.4 Show decrypted message](#324-show-decrypted-message)
-  * [4. 🔐 Asymetric (a.k.a. public / private key) cryptography using RSA](#4----asymetric--aka-public---private-key--cryptography-using-rsa)
-    + [4.1 Plaintext message](#41-plaintext-message)
-      - [4.1.1 Create a message file](#411-create-a-message-file)
-      - [4.1.2 Read the message file](#412-read-the-message-file)
-    + [4.2 Create a RSA key pair](#42-create-a-rsa-key-pair)
-      - [4.2.1 Create a private key](#421-create-a-private-key)
-      - [4.2.1 View the private key](#421-view-the-private-key)
-      - [4.2.3 Derive public key](#423-derive-public-key)
-      - [4.2.4 View the public key](#424-view-the-public-key)
-    + [4.3 Encryption and decryption](#43-encryption-and-decryption)
-      - [4.3.1 Encrypt message](#431-encrypt-message)
-      - [4.3.2 Show encrypted ciphertext](#432-show-encrypted-ciphertext)
-      - [4.3.3 Decrypt the ciphertext](#433-decrypt-the-ciphertext)
-      - [4.3.4 Show decrypted message](#434-show-decrypted-message)
-  * [5. 🔏Asymetric (a.k.a. public / private key) cryptography using EC](#5---asymetric--aka-public---private-key--cryptography-using-ec)
-    + [5.1 Plaintext message](#51-plaintext-message)
-      - [5.1.1 Create a message file](#511-create-a-message-file)
-      - [5.1.2 Read the message file](#512-read-the-message-file)
-    + [5.2 Create a EC key pair](#52-create-a-ec-key-pair)
-      - [5.2.1 Create a private key](#521-create-a-private-key)
-      - [5.2.2 View the private key](#522-view-the-private-key)
-      - [5.2.3 Derive public key](#523-derive-public-key)
-      - [5.2.4 View the public key](#524-view-the-public-key)
-    + [5.3 Sign and verify](#53-sign-and-verify)
-      - [5.3.1 Sign message](#531-sign-message)
-      - [5.3.2 Show signature](#532-show-signature)
-      - [5.3.3 Verify the signature](#533-verify-the-signature)
-      - [5.3.4 Alter message](#534-alter-message)
-      - [5.3.5 Verify the signature again](#535-verify-the-signature-again)
-
-
 # ⛓️ Blockchain Lab
 
 ## 1. Install Docker
@@ -81,7 +10,15 @@ On Windows:
 
 [https://download.docker.com/win/stable/Docker%20Desktop%20Installer.exe](https://download.docker.com/win/stable/Docker%20Desktop%20Installer.exe)
 
+Start the newly installed **Docker** application.
+
 ## 2. Run Debian linux
+
+> To reuse your previous container run:
+>
+>```sh
+>docker attach $(docker start $(docker ps -l -q))
+> ```
 
 ### 2.1 Mac
 
@@ -98,8 +35,6 @@ docker run -it debian:latest
 It is recommended that you install the Terminal app for Windows available at:
 
 [https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701)
-
-#### 2.2.2 Run
 
 Open the Terminal (`Terminal`) app and run:
 
