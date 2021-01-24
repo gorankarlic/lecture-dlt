@@ -25,7 +25,7 @@ Start the newly installed **Docker** application.
 Open the Terminal (`Terminal`) app and run:
 
 ```sh
-docker run -it debian:latest
+docker run -it debian
 ```
 
 ### 2.2 Windows
@@ -39,7 +39,7 @@ It is recommended that you install the Terminal app for Windows available at:
 Open the Terminal (`Terminal`) app and run:
 
 ```sh
-docker run -it debian:latest
+docker run -it debian
 ```
 
 ### 2.3 Command prompt
@@ -239,7 +239,7 @@ On Windows:
 Open the Terminal (`Terminal`) app and run:
 
 ```sh
-docker run -it debian:latest
+docker run -it debian
 ```
 
 ### 2.2 Windows
@@ -255,7 +255,7 @@ It is recommended that you install the Terminal app for Windows available at:
 Open the Terminal (`Terminal`) app and run:
 
 ```sh
-docker run -it debian:latest
+docker run -it debian
 ```
 
 #### 2.3 Install OpenSSL
