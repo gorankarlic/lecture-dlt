@@ -30,6 +30,8 @@ Open the Terminal (`Terminal`) app and run:
 docker run -it debian
 ```
 
+> ### Reuse a previous container
+> 
 > Or to reuse your a previously started container run:
 >
 >```sh
