@@ -75,7 +75,7 @@ apt-get update && apt-get install -y wget
 To download `geth` run:
 
 ```sh
-cd && wget https://gethstore.blob.core.windows.net/builds/geth-alltools-linux-amd64-1.9.25-e7872729.tar.gz
+cd && wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.11-7231b3ef.tar.gz
 ```
 
 ### 3.3 Install `geth`
