@@ -53,10 +53,10 @@ This is the _command prompt_ of the Debian operating system that is now running 
 Type the following command to show the Debian version:
 
 ```sh
-cat /etc/debian_version
+cat /etc/os-release
 ```
 
-It should output `10.7`.
+It should output `Debian GNU/Linux 11 (bullseye)` amongt other information.
 
 ## 3. Install Ethereum client
 
