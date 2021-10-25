@@ -8,12 +8,6 @@ Start the newly installed **Docker** application.
 
 ## 2. Run Debian linux
 
-> To reuse your previous container run:
->
->```sh
->docker attach $(docker start $(docker ps -l -q))
-> ```
-
 ### 2.1 Mac
 
 Open the Terminal (`Terminal`) app and run:
@@ -35,6 +29,12 @@ Open the Terminal (`Terminal`) app and run:
 ```sh
 docker run -it debian
 ```
+
+> Or to reuse your a previously started container run:
+>
+>```sh
+>docker attach $(docker start $(docker ps -l -q))
+> ```
 
 ### 2.3 Command prompt
 
