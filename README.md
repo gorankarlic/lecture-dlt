@@ -1,14 +1,8 @@
 # ⛓️ Blockchain Lab
 
-## 1. Install Docker
+## 1. Downdoad and Install Docker
 
-On Mac:
-
-[https://download.docker.com/mac/stable/Docker.dmg](https://download.docker.com/mac/stable/Docker.dmg)
-
-On Windows:
-
-[https://download.docker.com/win/stable/Docker%20Desktop%20Installer.exe](https://download.docker.com/win/stable/Docker%20Desktop%20Installer.exe)
+https://www.docker.com/get-started
 
 Start the newly installed **Docker** application.
 
