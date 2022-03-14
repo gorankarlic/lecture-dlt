@@ -75,7 +75,7 @@ apt-get update && apt-get install -y wget
 To download `geth` run:
 
 ```sh
-cd && wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.11-7231b3ef.tar.gz
+cd && wget https://gethstore.blob.core.windows.net/builds/geth-alltools-linux-amd64-1.10.16-20356e57.tar.gz
 ```
 
 ### 3.3 Install `geth`
@@ -83,7 +83,7 @@ cd && wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.10.
 To unpack and install then downloaded program files run:
 
 ```sh
-cd && tar -xvf geth-linux-amd64-1.10.11-7231b3ef.tar.gz --exclude=COPYING --strip-components=1 && rm geth-linux-amd64-1.10.11-7231b3ef.tar.gz && chmod u+x * && mv * /usr/bin
+cd && tar -xvf geth-alltools-linux-amd64-1.10.16-20356e57.tar.gz --exclude=COPYING --strip-components=1 && rm geth-alltools-linux-amd64-1.10.16-20356e57.tar.gz && chmod u+x * && mv * /usr/bin
 ```
 
 ### 3.4 Verify result
