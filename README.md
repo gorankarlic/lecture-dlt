@@ -72,10 +72,18 @@ apt-get update && apt-get install -y wget
 
 `geth ` is the most popular Ethereum client. It is written in the _Go_ programming language.
 
-To download `geth` run:
+To download `geth`,
+
+if you have processor with an x64 architecture (e.g., AMD, Intel), run:
 
 ```sh
-cd && wget https://gethstore.blob.core.windows.net/builds/geth-alltools-linux-amd64-1.10.16-20356e57.tar.gz
+cd && wget -O geth.tar.gz https://gethstore.blob.core.windows.net/builds/geth-alltools-linux-amd64-1.10.16-20356e57.tar.gz
+```
+
+if you have processor with an ARM architecture (e.g., Apple M1), run:
+
+```sh
+cd && wget -O geth.tar.gz https://gethstore.blob.core.windows.net/builds/geth-alltools-linux-arm64-1.10.16-20356e57.tar.gz
 ```
 
 ### 3.3 Install `geth`
@@ -83,7 +91,7 @@ cd && wget https://gethstore.blob.core.windows.net/builds/geth-alltools-linux-am
 To unpack and install then downloaded program files run:
 
 ```sh
-cd && tar -xvf geth-alltools-linux-amd64-1.10.16-20356e57.tar.gz --exclude=COPYING --strip-components=1 && rm geth-alltools-linux-amd64-1.10.16-20356e57.tar.gz && chmod u+x * && mv * /usr/bin
+cd && tar -xvf geth.tar.gz --exclude=COPYING --strip-components=1 && rm geth.tar.gz && chmod u+x * && mv * /usr/bin
 ```
 
 ### 3.4 Verify result
