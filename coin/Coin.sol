@@ -12,15 +12,9 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contr
 contract Coin is ERC20
 {
     /**
-     * Created a coin.
-     */
-    event Coined(string indexed symbol);
-
-    /**
      * Initializes the contract.
      */
     constructor() ERC20("WHU", "WHU") public
     {
-        emit Coined("WHU");
     }
 }
