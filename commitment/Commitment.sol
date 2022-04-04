@@ -14,6 +14,8 @@ contract Commitment
     
     /**
      * Creates a new contract.
+     *
+     * @param hash the hash to commit.
      */
     constructor(bytes32 hash)
     {
@@ -28,7 +30,9 @@ contract Commitment
     }
 
     /**
-     * Payout if the sender can proove knowledge of pre-image.
+     * Pay out if the sender can prove knowledge of the commited hash pre-image.
+     *
+     * @param preimage the preimage that hashes to the commitment.
      */
     function payout(string memory preimage) public
     {
