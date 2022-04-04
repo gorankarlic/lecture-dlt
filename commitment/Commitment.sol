@@ -30,7 +30,7 @@ contract Commitment
     }
 
     /**
-     * Pay out if the sender can prove knowledge of the commited hash pre-image.
+     * Pay out if the sender can prove knowledge of the commited hash preimage.
      *
      * @param preimage the preimage that hashes to the commitment.
      */
