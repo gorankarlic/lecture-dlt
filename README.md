@@ -216,7 +216,7 @@ Create a new account:
 personal.newAccount()
 ```
 
-### 4.2.6 Exit the Geth console
+## 4.3 Exit the Geth console
 
 Exit the console:
 
