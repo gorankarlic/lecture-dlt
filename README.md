@@ -77,13 +77,13 @@ To download `geth`,
 if you have processor with an x64 architecture (e.g., AMD, Intel), run:
 
 ```sh
-cd && wget -O geth.tar.gz https://gethstore.blob.core.windows.net/builds/geth-alltools-linux-amd64-1.10.16-20356e57.tar.gz
+cd && wget -O https://gethstore.blob.core.windows.net/builds/geth-alltools-linux-amd64-1.10.26-e5eb32ac.tar.gz
 ```
 
 if you have processor with an ARM architecture (e.g., Apple M1), run:
 
 ```sh
-cd && wget -O geth.tar.gz https://gethstore.blob.core.windows.net/builds/geth-alltools-linux-arm64-1.10.16-20356e57.tar.gz
+cd && wget -O https://gethstore.blob.core.windows.net/builds/geth-alltools-linux-arm64-1.10.26-e5eb32ac.tar.gz
 ```
 
 ### 3.3 Install `geth`
