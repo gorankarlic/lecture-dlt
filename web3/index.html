@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Web3 Demo App</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.0/semantic.min.css" rel="stylesheet"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.8.1/web3.min.js"></script>
+    </head>
+    <body>
+        <div class="ui container">
+            <h1>Web3 Demo</h1>
+            <h4 class="ui dividing header">Read data</h4>
+            <form class="ui form">
+                <div class="field">
+                    <div class="two fields">
+                        <div class="field">
+                            <button class="ui blue button" id="getBlockNumber" type="button">Get latest block number</button>
+                        </div>
+                        <div class="field">
+                            <div class="ui blue label">
+                                <i class="cube icon"></i>
+                                <a class="detail" id="blockNumber" target="_blank"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="two fields">
+                        <div class="field">
+                            <button class="ui green button" id="getAddress" type="button">Connect MetaMask wallet</button>
+                        </div>
+                        <div class="field">
+                            <div class="ui green label">
+                                <i class="ethereum icon"></i>
+                                <a class="detail" id="address" target="_blank"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="two fields">
+                        <div class="field">
+                            <button class="ui orange button" id="getBalance" type="button">Balance of MetaMask wallet</button>
+                        </div>
+                        <div class="field">
+                            <div class="ui orange label">
+                                <i class="dollar sign icon"></i>
+                                <a class="detail" id="balance"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <br/>
+            <br/>
+            <form class="ui form">
+                <h4 class="ui dividing header">Send transaction</h4>
+                <div class="field">
+                    <label>From address</label>
+                    <div class="ui icon input">
+                        <i class="arrow alternate circle right icon"></i>
+                        <input id="from"/>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>To address</label>
+                    <div class="ui icon input">
+                        <i class="arrow alternate circle left icon"></i>
+                        <input id="to"/>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Amount</label>
+                    <div class="ui icon input">
+                        <i class="dollar sign icon"></i>
+                        <input id="amount"/>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="two fields">
+                        <div class="field">
+                            <button class="ui red button" id="sendEther" type="button">Send Ether</button>
+                        </div>
+                        <div class="field">
+                            <div class="ui red label">
+                                <i class="barcode icon"></i>
+                                <a class="detail" id="txHash" target="_blank"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <br/>
+            <br/>
+            <h4 class="ui dividing header">System log</h4>
+            <pre style="color:#888"></pre>
+        </div>
+        <script type="module">
+        const node = "https://eth-mainnet.gateway.pokt.network/v1/lb/29934f7f10137fb45e8609a0";
+        const web3 = new Web3(node);
+        document.querySelector("pre").textContent += "Connecting to Ethereum blockchain...\n";
+
+        document.querySelector("#getBlockNumber").addEventListener("click", async () =>
+        {
+            const blockNumber = await web3.eth.getBlockNumber();
+            document.querySelector("pre").textContent += `Connected to Ethereum blockchain at block number ${blockNumber}.\n`;
+            document.querySelector("#blockNumber").href = `https://etherscan.io/block/${blockNumber}`;
+            document.querySelector("#blockNumber").textContent = `Block number ${blockNumber}`;
+        });
+
+        document.querySelector("#getAddress").addEventListener("click", async () =>
+        {
+            const [address] = await ethereum.request({method: "eth_requestAccounts"});
+            document.querySelector("pre").textContent += `Browser Wallet MetaMask using account ${address}\n`;
+            document.querySelector("#address").href = `https://etherscan.io/address/${address}`;
+            document.querySelector("#address").textContent = address;
+        });
+
+        document.querySelector("#getBalance").addEventListener("click", async () =>
+        {
+            const [address] = await ethereum.request({method: "eth_requestAccounts"});
+            const balance = await web3.eth.getBalance(address);
+            const ethers = web3.utils.fromWei(balance, "ether");
+            document.querySelector("pre").textContent += `Balance of ${address} is ${ethers} ETH\n`;
+            document.querySelector("#balance").textContent = `${ethers} ETH`;
+        });
+
+        document.querySelector("#sendEther").addEventListener("click", async () =>
+        {
+            const from = document.querySelector("#from").value;
+            const to = document.querySelector("#to").value;
+            const amount = document.querySelector("#amount").value;
+            const value =web3.utils.toWei(amount, "ether");
+            document.querySelector("pre").textContent += `Sending ${amount} ETH from ${from} to ${to}\n`;
+            const transaction = {from, to, value};
+            const txHash = await ethereum.request({method: 'eth_sendTransaction', params: [transaction]});
+            document.querySelector("pre").textContent += `Transaction hash is ${txHash}\n`;
+            document.querySelector("#txHash").href = `https://etherscan.io/tx/${txHash}`;
+            document.querySelector("#txHash").textContent = txHash;
+        });
+        </script>
+    </body>
+</html>
