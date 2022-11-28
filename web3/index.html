@@ -131,7 +131,7 @@
             const from = document.querySelector("#from").value;
             const to = document.querySelector("#to").value;
             const amount = document.querySelector("#amount").value;
-            const value =web3.utils.toWei(amount, "ether");
+            const value = web3.utils.toWei(amount, "ether");
             document.querySelector("pre").textContent += `Sending ${amount} ETH from ${from} to ${to}\n`;
             const transaction = {from, to, value};
             const txHash = await ethereum.request({method: 'eth_sendTransaction', params: [transaction]});
