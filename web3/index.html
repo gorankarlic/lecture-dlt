@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Web3 Demo App</title>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.0/semantic.min.css" rel="stylesheet"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.8.1/web3.min.js"></script>
+        <script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.8.1/web3.min.js"></script>
     </head>
     <body>
         <div class="ui container">
@@ -95,8 +95,12 @@
             <br/>
             <h4 class="ui dividing header">System log</h4>
             <pre style="color:#888"></pre>
+            <br/>
         </div>
         <script type="module">
+        window.addEventListener("error", (e) => document.querySelector("pre").textContent += `${e.error.stack}\n`, true);
+        window.addEventListener("unhandledrejection", (e) => document.querySelector("pre").textContent += `${e.reason.stack}\n`, true);
+
         const node = "https://eth-mainnet.gateway.pokt.network/v1/lb/29934f7f10137fb45e8609a0";
         const web3 = new Web3(node);
         document.querySelector("pre").textContent += "Connecting to Ethereum blockchain...\n";
