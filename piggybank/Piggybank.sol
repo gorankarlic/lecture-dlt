@@ -11,7 +11,7 @@ contract Piggybank
      * Contract owner.
      */
     address payable public owner;
-    
+
     /**
      * Creates a new contract.
      */
@@ -28,7 +28,7 @@ contract Piggybank
     }
 
     /**
-     * Empty the Piggybank by transering saved funds out owner.
+     * Empty the Piggybank by transfering saved funds to owner.
      */
     function payout() public
     {

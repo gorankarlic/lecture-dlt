@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity >=0.6.0 <0.7.0;
+pragma solidity >=0.8.0;
 import "remix_tests.sol";
 import "remix_accounts.sol";
 import "./Piggybank.sol";
@@ -11,15 +11,15 @@ contract PiggybankTest is Piggybank
     address grandmom;
     address grandpop;
     Piggybank piggybank;
-    
+
     function beforeAll () public
     {
-        grandson = TestsAccounts.getAccount(0); 
-        grandmom = TestsAccounts.getAccount(1); 
+        grandson = TestsAccounts.getAccount(0);
+        grandmom = TestsAccounts.getAccount(1);
         grandpop = TestsAccounts.getAccount(2);
         piggybank = this;
     }
-    
+
     function testInitial() public
     {
         Assert.equal(piggybank.owner(), grandson, "should have correct owner");
