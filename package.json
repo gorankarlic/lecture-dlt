@@ -1,0 +1,20 @@
+{
+  "author": "Goran Karlic",
+  "license": "MIT",
+  "name": "lecture-dlt",
+  "version": "2023.10.0",
+  "bugs": {
+    "url": "https://github.com/gorankarlic/lecture-dlt/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gorankarlic/lecture-dlt.git"
+  },
+  "scripts": {
+    "start": "npm -w web3 start"
+  },
+  "workspaces":
+  [
+    "web3"
+  ]
+}
