@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity >=0.8.0;
+pragma solidity >=0.8.0 <0.9.0;
 
 /**
  * Piggybank contract that allows spending if savings are > 1 ETH
