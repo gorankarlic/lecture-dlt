@@ -83,7 +83,7 @@ cd && wget -O geth.tar.gz https://gethstore.blob.core.windows.net/builds/geth-al
 if you have processor with an ARM architecture (e.g., Apple M1), run:
 
 ```sh
-cd &&  wget -O geth.tar.gz https://gethstore.blob.core.windows.net/builds/geth-alltools-linux-arm64-1.13.4-3f907d6a.tar.gz
+cd && wget -O geth.tar.gz https://gethstore.blob.core.windows.net/builds/geth-alltools-linux-arm64-1.13.4-3f907d6a.tar.gz
 ```
 
 ### 3.3 Install `geth`
