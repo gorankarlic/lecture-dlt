@@ -106,88 +106,89 @@
             <br/>
             <br/>
             <h4 class="ui dividing header">System log</h4>
-            <pre style="color:#888"></pre>
+            <pre id="log" style="color:#888"></pre>
             <br/>
         </div>
         <script type="module">
-        window.addEventListener("error", (e) => document.querySelector("pre").textContent += `${e.error.stack}\n`, true);
-        window.addEventListener("unhandledrejection", (e) => document.querySelector("pre").textContent += `${e.reason.stack}\n`, true);
+            window.addEventListener("error", (e) => document.querySelector("pre").textContent += `${e.error.stack}\n`, true);
+            window.addEventListener("unhandledrejection", (e) => document.querySelector("pre").textContent += `${e.reason.stack}\n`, true);
 
-        const node = "https://eth-mainnet.gateway.pokt.network/v1/lb/29934f7f10137fb45e8609a0";
-        const web3 = new Web3(node);
-        document.querySelector("pre").textContent += "Connecting to Ethereum blockchain...\n";
-        document.querySelector("pre").textContent += `Connected to Ethereum blockchain at block number ${await web3.eth.getBlockNumber()}.\n`;
+            const log = (text) => document.querySelector("#log").textContent = text;
+            const node = "https://eth-mainnet.gateway.pokt.network/v1/lb/29934f7f10137fb45e8609a0";
+            const web3 = new Web3(node);
+            log("Connecting to Ethereum blockchain...\n");
+            document.querySelector("pre").textContent += `Connected to Ethereum blockchain at block number ${await web3.eth.getBlockNumber()}.\n`;
 
-        document.querySelector("#getBlockNumber").addEventListener("click", async () =>
-        {
-            document.querySelector("#getBlockNumber i").classList.add("loading", "spinner");
-            try
+            document.querySelector("#getBlockNumber").addEventListener("click", async () =>
             {
-                const blockNumber = await web3.eth.getBlockNumber();
-                document.querySelector("pre").textContent += `Ethereum blockchain at block number ${blockNumber}.\n`;
-                document.querySelector("#blockNumber").href = `https://etherscan.io/block/${blockNumber}`;
-                document.querySelector("#blockNumber").textContent = `Block number ${blockNumber}`;
-            }
-            finally
-            {
-                document.querySelector("#getBlockNumber i").classList.remove("loading", "spinner");
-            }
-        });
+                document.querySelector("#getBlockNumber i").classList.add("loading", "spinner");
+                try
+                {
+                    const blockNumber = await web3.eth.getBlockNumber();
+                    log(`Ethereum blockchain at block number ${blockNumber}.\n`);
+                    document.querySelector("#blockNumber").href = `https://etherscan.io/block/${blockNumber}`;
+                    document.querySelector("#blockNumber").textContent = `Block number ${blockNumber}`;
+                }
+                finally
+                {
+                    document.querySelector("#getBlockNumber i").classList.remove("loading", "spinner");
+                }
+            });
 
-        document.querySelector("#getAddress").addEventListener("click", async () =>
-        {
-            document.querySelector("#getAddress i").classList.add("loading", "spinner");
-            try
+            document.querySelector("#getAddress").addEventListener("click", async () =>
             {
-                const [address] = await ethereum.request({method: "eth_requestAccounts"});
-                document.querySelector("pre").textContent += `Browser wallet MetaMask using account ${address}\n`;
-                document.querySelector("#address").href = `https://etherscan.io/address/${address}`;
-                document.querySelector("#address").textContent = address;
-            }
-            finally
-            {
-                document.querySelector("#getAddress i").classList.remove("loading", "spinner");
-            }
-        });
+                document.querySelector("#getAddress i").classList.add("loading", "spinner");
+                try
+                {
+                    const [address] = await ethereum.request({method: "eth_requestAccounts"});
+                    log(`Browser wallet MetaMask using account ${address}\n`);
+                    document.querySelector("#address").href = `https://etherscan.io/address/${address}`;
+                    document.querySelector("#address").textContent = address;
+                }
+                finally
+                {
+                    document.querySelector("#getAddress i").classList.remove("loading", "spinner");
+                }
+            });
 
-        document.querySelector("#getBalance").addEventListener("click", async () =>
-        {
-            document.querySelector("#getBalance i").classList.add("loading", "spinner");
-            try
+            document.querySelector("#getBalance").addEventListener("click", async () =>
             {
-                const [address] = await ethereum.request({method: "eth_requestAccounts"});
-                const balance = await web3.eth.getBalance(address);
-                const ethers = web3.utils.fromWei(balance, "ether");
-                document.querySelector("pre").textContent += `Balance of ${address} is ${ethers} ETH\n`;
-                document.querySelector("#balance").textContent = `${ethers} ETH`;
-            }
-            finally
-            {
-                document.querySelector("#getBalance i").classList.remove("loading", "spinner");
-            }
-        });
+                document.querySelector("#getBalance i").classList.add("loading", "spinner");
+                try
+                {
+                    const [address] = await ethereum.request({method: "eth_requestAccounts"});
+                    const balance = await web3.eth.getBalance(address);
+                    const ethers = web3.utils.fromWei(balance, "ether");
+                    log(`Balance of ${address} is ${ethers} ETH\n`);
+                    document.querySelector("#balance").textContent = `${ethers} ETH`;
+                }
+                finally
+                {
+                    document.querySelector("#getBalance i").classList.remove("loading", "spinner");
+                }
+            });
 
-        document.querySelector("#sendEther").addEventListener("click", async () =>
-        {
-            document.querySelector("#getBalance i").classList.add("loading", "spinner");
-            try
+            document.querySelector("#sendEther").addEventListener("click", async () =>
             {
-                const from = document.querySelector("#from").value;
-                const to = document.querySelector("#to").value;
-                const amount = document.querySelector("#amount").value;
-                const value = web3.utils.toWei(amount, "ether");
-                document.querySelector("pre").textContent += `Sending ${amount} ETH from ${from} to ${to}\n`;
-                const transaction = {from, to, value};
-                const txHash = await ethereum.request({method: 'eth_sendTransaction', params: [transaction]});
-                document.querySelector("pre").textContent += `Transaction hash is ${txHash}\n`;
-                document.querySelector("#txHash").href = `https://etherscan.io/tx/${txHash}`;
-                document.querySelector("#txHash").textContent = txHash;
-            }
-            finally
-            {
-                document.querySelector("#getBalance i").classList.remove("loading", "spinner");
-            }
-        });
+                document.querySelector("#getBalance i").classList.add("loading", "spinner");
+                try
+                {
+                    const from = document.querySelector("#from").value;
+                    const to = document.querySelector("#to").value;
+                    const amount = document.querySelector("#amount").value;
+                    const value = web3.utils.toWei(amount, "ether");
+                    log(`Sending ${amount} ETH from ${from} to ${to}\n`);
+                    const transaction = {from, to, value};
+                    const txHash = await ethereum.request({method: 'eth_sendTransaction', params: [transaction]});
+                    log(`Transaction hash is ${txHash}\n`);
+                    document.querySelector("#txHash").href = `https://etherscan.io/tx/${txHash}`;
+                    document.querySelector("#txHash").textContent = txHash;
+                }
+                finally
+                {
+                    document.querySelector("#getBalance i").classList.remove("loading", "spinner");
+                }
+            });
         </script>
     </body>
 </html>
