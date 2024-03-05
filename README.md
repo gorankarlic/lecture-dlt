@@ -1,6 +1,6 @@
 # ⛓️ Blockchain Lab
 
-## 1. Downdoad and Install Docker
+## 1. Download and Install Docker
 
 https://www.docker.com/get-started
 
