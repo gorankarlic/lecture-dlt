@@ -114,7 +114,7 @@
             window.addEventListener("unhandledrejection", (e) => document.querySelector("pre").textContent += `${e.reason.stack}\n`, true);
 
             const log = (text) => document.querySelector("#log").textContent = text;
-            const node = "https://eth-mainnet.gateway.pokt.network/v1/lb/29934f7f10137fb45e8609a0";
+            const node = "https://eth-mainnet.rpc.grove.city/v1/29934f7f10137fb45e8609a0";
             const web3 = new Web3(node);
             log("Connecting to Ethereum blockchain...\n");
             document.querySelector("pre").textContent += `Connected to Ethereum blockchain at block number ${await web3.eth.getBlockNumber()}.\n`;
