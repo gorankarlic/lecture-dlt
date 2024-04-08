@@ -387,7 +387,7 @@ cat public.txt
 Encrypt the message using the public key:
 
 ```sh
-openssl rsautl -encrypt -pubin -inkey public.txt -in message.txt -out encrypted.bin
+openssl pkeyutl -encrypt -pubin -inkey public.txt -in message.txt -out encrypted.bin
 ```
 
 #### 4.3.2 Show encrypted ciphertext
@@ -403,7 +403,7 @@ base64 encrypted.bin
 Decrypt the ciphertext using the private key:
 
 ```sh
-openssl rsautl -decrypt -inkey private.txt -in encrypted.bin -out decrypted.txt
+openssl pkeyutl -decrypt -inkey private.txt -in encrypted.bin -out decrypted.txt
 ```
 
 #### 4.3.4 Show decrypted message
