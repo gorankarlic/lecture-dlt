@@ -55,9 +55,7 @@ contract Auction
      */
     function close() external payable
     {
-        if(lastBidBlockNumber > 0 && lastBidBlockNumber + 2 < block.number)
-        {
-            seller.transfer(address(this).balance);
-        }
+        require(lastBidBlockNumber > 0 && lastBidBlockNumber + 2 < block.number);
+        seller.transfer(address(this).balance);
     }
 }
