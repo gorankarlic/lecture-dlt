@@ -23,7 +23,7 @@ contract Piggybank
     /**
      * Accept payments.
      */
-    function pay() external payable
+    receive() external payable
     {
     }
 

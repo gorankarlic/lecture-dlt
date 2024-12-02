@@ -33,7 +33,7 @@ contract PiggybankTest is Piggybank
     {
         Assert.equal(msg.sender, grandmom, "should have correct sender");
         Assert.equal(msg.value, 5e18, "should have correct value");
-        address(piggybank).transfer(msg.value);
+        payable(address(piggybank)).transfer(msg.value);
         Assert.equal(address(piggybank).balance, msg.value, "should have some savings");
     }
 
@@ -43,7 +43,7 @@ contract PiggybankTest is Piggybank
     {
         Assert.equal(msg.sender, grandpop, "should have correct sender");
         Assert.equal(msg.value, 5e18, "should have correct value");
-        address(piggybank).transfer(msg.value);
+        payable(address(piggybank)).transfer(msg.value);
         Assert.equal(address(piggybank).balance, msg.value * 2, "should have more savings");
     }
 

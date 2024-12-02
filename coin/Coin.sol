@@ -14,7 +14,7 @@ contract Coin is ERC20
     /**
      * Initializes the contract.
      */
-    constructor() ERC20("WHU", "WHU") public
+    constructor() ERC20("WHU", "WHU")
     {
     }
 }
