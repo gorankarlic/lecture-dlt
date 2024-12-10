@@ -37,12 +37,12 @@ contract Joint
     }
 
     /**
-     * Accept payment of the outstanding debt in full from anyone.
+     * Accept payment of the partial or full outstanding from anyone.
      */
-    function repay() public payable
+    receive() external payable
     {
-        require(debt == msg.value, "only accepts outstanding debt for beneficiary");
-        debt = 0;
+        require(debt >= msg.value, "only accepts outstanding debt for beneficiary");
+        debt -= msg.value;
     }
 
     /**
