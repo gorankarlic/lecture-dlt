@@ -3,7 +3,7 @@
 pragma solidity >=0.8.0 <0.9.0;
 
 /**
- * Piggybank contract that allows spending if savings are > 1 ETH
+ * Piggybank contract that allows spending if savings are >= 1 ETH
  */
 contract Piggybank
 {
