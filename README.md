@@ -280,7 +280,7 @@ Alter the message:
 echo Send 2 million USD to John Smith > message.txt
 ```
 
-#### 5.3.5 Verify the signature again 
+#### 5.3.5 Verify the signature again
 
 Verify the signature using the public key:
 
