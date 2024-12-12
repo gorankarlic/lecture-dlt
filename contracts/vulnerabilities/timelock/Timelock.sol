@@ -44,7 +44,7 @@ contract Timelock
     function transferInitiate(address subsequent_) external 
     {
         require(msg.sender == owner);
-        timelock = block.number + 2;//NUMBER_OF_BLOCKS_IN_ONE_WEEK;
+        timelock = block.number + NUMBER_OF_BLOCKS_IN_ONE_WEEK;
         subsequent = subsequent_;
     }
 
