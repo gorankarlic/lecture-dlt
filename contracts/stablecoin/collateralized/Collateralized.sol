@@ -39,17 +39,17 @@ contract Collateralized
     /**
      * Collateralization ratio.
      */
-    uint256 constant RATIO = 2;
+    uint256 constant public RATIO = 2;
 
     /**
      * Stablecoin balance for each address.
      */
-    mapping(address => uint256) balance;
+    mapping(address => uint256) public balance;
 
     /**
      * Collateralized debt position for each borrower.
      */
-    mapping(address => CDP) collateral;
+    mapping(address => CDP) public collateral;
 
     /**
      * Ether price oracle.
@@ -79,7 +79,7 @@ contract Collateralized
     }
 
     /**
-     * Redeem collateral by returning all borrowed stablecoins.
+     * Redeem collateral by returning the borrowed stablecoins.
      */
     function redeem() public
     {

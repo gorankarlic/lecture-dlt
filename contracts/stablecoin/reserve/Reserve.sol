@@ -23,7 +23,7 @@ contract Reserve
     /**
      * Stablecoin balance for each address.
      */
-    mapping(address => uint256) balance;
+    mapping(address => uint256) public balance;
 
     /**
      * Ether price oracle.
