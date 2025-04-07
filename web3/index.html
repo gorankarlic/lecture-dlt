@@ -113,11 +113,11 @@
             window.addEventListener("error", (e) => document.querySelector("pre").textContent += `${e.error.stack}\n`, true);
             window.addEventListener("unhandledrejection", (e) => document.querySelector("pre").textContent += `${e.reason.stack}\n`, true);
 
-            const log = (text) => document.querySelector("#log").textContent = text;
+            const log = (text) => document.querySelector("#log").textContent += text;
             const node = "https://ethereum-rpc.publicnode.com";
             const web3 = new Web3(node);
             log("Connecting to Ethereum blockchain...\n");
-            document.querySelector("pre").textContent += `Connected to Ethereum blockchain at block number ${await web3.eth.getBlockNumber()}.\n`;
+            log(`Connected to Ethereum blockchain at block number ${await web3.eth.getBlockNumber()}.\n`);
 
             document.querySelector("#getBlockNumber").addEventListener("click", async () =>
             {
