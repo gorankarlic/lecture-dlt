@@ -31,4 +31,5 @@ SELECT
 account,
 received,
 sent,
-received - sent FROM Sums;
+received - sent AS balance
+FROM Sums;
