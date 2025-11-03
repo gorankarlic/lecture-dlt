@@ -1,5 +1,6 @@
 # DLT lecture
 
+1. [Digital Signatures](https://tweetnacl.js.org/#/sign)
 1. [Web 3 App](./web3)
-2. [Cryptography lab](./crypto-lab)
-3. [Smart contract examples](./contracts)
+1. [Cryptography lab](./crypto-lab)
+1. [Smart contract examples](./contracts)
