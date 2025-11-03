@@ -1,6 +1,7 @@
 # DLT lecture
 
-1. [Digital Signatures](https://tweetnacl.js.org/#/sign)
-1. [Web 3 App](./web3)
-1. [Cryptography lab](./crypto-lab)
-1. [Smart contract examples](./contracts)
+- [Number of bitcoin adresses](https://www.wolframalpha.com/input?i=2%5E160)
+- [Digital Signatures](https://tweetnacl.js.org/#/sign)
+- [Web 3 App](./web3)
+- [Cryptography lab](./crypto-lab)
+- [Smart contract examples](./contracts)
