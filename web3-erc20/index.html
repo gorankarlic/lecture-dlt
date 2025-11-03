@@ -39,7 +39,7 @@
         <script type="module">
             const node = "https://ethereum-rpc.publicnode.com";
             const provider = new ethers.JsonRpcProvider(node);
-            
+
             document.querySelector("#getBlockNumber").addEventListener("click", async () =>
             {
                 document.querySelector("#getBlockNumber i").classList.add("loading", "spinner");
@@ -71,11 +71,9 @@
                 const wallet = new ethers.BrowserProvider(window.ethereum);
                 await wallet.send('eth_requestAccounts', []);
                 const signer = await wallet.getSigner();
-                const tx = await signer.sendTransaction({to: "ethers.eth", value: ethers.parseEther("1.0")});
-                /*const amount = ethers.parseUnits("1.0", 18);
-                const tx = await contract.transfer("ethers.eth", amount, signer);
-                await tx.wait()*/
-        });
+                const tx = await signer.sendTransaction({to: "ethers.eth", value: 0});
+                await tx.wait();
+            });
     </script>
     </body>
 </html>
