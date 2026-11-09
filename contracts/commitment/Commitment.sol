@@ -37,6 +37,7 @@ contract Commitment
     function payout(string memory preimage) public
     {
         require(commitment == sha256(bytes(preimage)));
-        payable(msg.sender).transfer(address(this).balance);
+        (bool ok, ) = payable(msg.sender).call{value: address(this).balance}("");
+        require(ok);
     }
 }

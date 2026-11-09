@@ -26,7 +26,7 @@ contract MathTest
         (bool success, ) = payable(math).call{value: 3}("");
         require(success, "Transfer failed.");
 
-        Assert.equal(address(math).balance, 19, "should have 19 wei");
+        Assert.equal(address(math).balance, 3, "should have 3 wei");
  
         uint256 balance1 = recipient1.balance;
         uint256 balance2 = recipient2.balance;
@@ -36,5 +36,6 @@ contract MathTest
         math.distribute(recipients);
         Assert.equal(recipient1.balance, balance1 + 1, "should have 1 more wei");
         Assert.equal(recipient2.balance, balance2 + 1, "should have 1 more wei");
+        Assert.equal(address(math).balance, 1, "should have 1 wei left over due to rounding");
     }
 }

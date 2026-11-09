@@ -12,7 +12,7 @@ contract Layer2Test
     address account = TestsAccounts.getAccount(1);
     uint256 balance = account.balance;
 
-    Layer2 l2 = new Layer2(msg.sender);
+    Layer2 l2 = new Layer2(address(0));
     Layer1 l1 = new Layer1(l2);
 
     /// #sender: account-1
@@ -24,7 +24,11 @@ contract Layer2Test
         Assert.equal(l2.balance(account), 5000000000000000000, "should have correct balance");
         Assert.equal(address(l1).balance, 5000000000000000000, "should have correct balance");
         
-        l1.unlock(5000000000000000000);
+        l1.unlock(2000000000000000000);
+        Assert.equal(l2.balance(account), 3000000000000000000, "should have correct balance");
+        Assert.equal(address(l1).balance, 3000000000000000000, "should have correct balance");
+
+        l1.unlock(3000000000000000000);
         Assert.equal(l2.balance(account), 0, "should have correct balance");
         Assert.equal(address(l1).balance, 0, "should have correct balance");
     }

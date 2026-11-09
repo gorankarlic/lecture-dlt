@@ -9,6 +9,7 @@ contract TestBorrower is Borrower
     function execute(address payable lender) external payable
     {
         require(msg.value == 1e18, "must receive flashloan");
-        lender.transfer(msg.value);
+        (bool ok, ) = lender.call{value: msg.value}("");
+        require(ok);
     }
 }

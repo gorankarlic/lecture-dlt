@@ -66,6 +66,7 @@ contract Joint
         }
         require(signatory, "only a signatory can withdraw the credit");
         debt = address(this).balance;
-        payable(msg.sender).transfer(address(this).balance);
+        (bool ok, ) = payable(msg.sender).call{value: address(this).balance}("");
+        require(ok);
     }
 }

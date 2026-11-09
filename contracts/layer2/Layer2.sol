@@ -62,7 +62,8 @@ contract Layer1
     {
         require(address(l2) != address(0), "layer-2 oracle must be set");
         l2.burn(tx.origin, amount);
-        payable(tx.origin).transfer(amount);
+        (bool ok, ) = payable(tx.origin).call{value: amount}("");
+        require(ok);
     }
 }
 
@@ -94,7 +95,7 @@ contract Layer2 is L2
     function burn(address account, uint256 amount) external
     {
         require(msg.sender == owner, "must be called by contract owner");
-        require(amount >= balance[account], "insufficient balance");
+        require(balance[account] >= amount, "insufficient balance");
         balance[account] -= amount;
     }
 

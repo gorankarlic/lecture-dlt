@@ -3,7 +3,7 @@
 pragma solidity >=0.8.0 <0.9.0;
 
 /**
- * Smart contract with a re-entrancy vulnerability.
+ * Smart contract with a rounding error.
  */
 contract Math
 {
@@ -31,7 +31,8 @@ contract Math
         balances[msg.sender] = 0;
         for(uint256 n = 0; n < recipients.length; n++)
         {
-            recipients[n].transfer(fraction);
+            (bool ok, ) = recipients[n].call{value: fraction}("");
+            require(ok);
         }
     }
 }

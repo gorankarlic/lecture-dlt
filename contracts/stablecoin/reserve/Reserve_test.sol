@@ -36,7 +36,8 @@ contract ReserveTest is Reserve
     {
         Assert.equal(msg.sender, backer, "should have correct sender");
         Assert.equal(msg.value, 1e18, "should have correct value");
-        payable(address(this)).transfer(msg.value);
+        (bool ok, ) = payable(address(this)).call{value: msg.value}("");
+        require(ok);
         Assert.equal(address(this).balance, msg.value, "should have correct reserve");
     }
 

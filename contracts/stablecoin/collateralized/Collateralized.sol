@@ -87,7 +87,8 @@ contract Collateralized
         require(balance[msg.sender] >= cdp.minted, "insufficient funds");
         balance[msg.sender] -= cdp.minted;
         collateral[msg.sender] = CDP(0, 0);
-        payable(msg.sender).transfer(cdp.balance);
+        (bool ok, ) = payable(msg.sender).call{value: cdp.balance}("");
+        require(ok);
     }
 
     /**

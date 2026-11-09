@@ -72,6 +72,7 @@ contract Several
         {
             debt[signatories[n]] = proportion;
         }
-        payable(msg.sender).transfer(address(this).balance);
+        (bool ok, ) = payable(msg.sender).call{value: address(this).balance}("");
+        require(ok);
     }
 }

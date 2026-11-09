@@ -41,13 +41,16 @@ contract Auction
     function bid() external payable
     {
         require(msg.value > lastBidAmount);
-        if(lastBidder != address(0))
-        {
-            lastBidder.transfer(lastBidAmount);
-        }
+        address payable previousBidder = lastBidder;
+        uint256 previousBidAmount = lastBidAmount;
         lastBidAmount = msg.value;
         lastBidBlockNumber = block.number;
         lastBidder = payable(msg.sender);
+        if(previousBidder != address(0))
+        {
+            (bool ok, ) = previousBidder.call{value: previousBidAmount}("");
+            require(ok);
+        }
     }
 
     /**
@@ -56,6 +59,7 @@ contract Auction
     function close() external payable
     {
         require(lastBidBlockNumber > 0 && lastBidBlockNumber + 2 < block.number);
-        seller.transfer(address(this).balance);
+        (bool ok, ) = seller.call{value: address(this).balance}("");
+        require(ok);
     }
 }

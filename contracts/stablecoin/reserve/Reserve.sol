@@ -64,7 +64,8 @@ contract Reserve
     {
         require(balance[msg.sender] >= amount, "insufficient funds");
         balance[msg.sender] -= amount;
-        payable(msg.sender).transfer((amount * 1 ether) / oracle.price());
+        (bool ok, ) = payable(msg.sender).call{value: (amount * 1 ether) / oracle.price()}("");
+        require(ok);
     }
 
     /**

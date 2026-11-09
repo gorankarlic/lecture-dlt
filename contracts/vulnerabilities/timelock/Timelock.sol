@@ -8,9 +8,9 @@ pragma solidity >=0.8.0 <0.9.0;
 contract Timelock
 {
     /**
-     * Approximate number of blocks in one week (assuming a 30 second block time).
+     * Number of blocks the ownership transfer is locked for.
      */
-    uint256 public constant NUMBER_OF_BLOCKS_IN_ONE_WEEK = 7 * 24 * 60 * 60 / 30;
+    uint256 public constant NUMBER_OF_BLOCKS = 3;
 
     /**
      * Contract owner.
@@ -44,7 +44,7 @@ contract Timelock
     function transferInitiate(address subsequent_) external 
     {
         require(msg.sender == owner);
-        timelock = block.number + NUMBER_OF_BLOCKS_IN_ONE_WEEK;
+        timelock = block.number + NUMBER_OF_BLOCKS;
         subsequent = subsequent_;
     }
 

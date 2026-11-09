@@ -20,11 +20,8 @@ contract SeveralTest is Several
         signatoryB = TestsAccounts.getAccount(2);
     }
     
-    /// #sender: account-0
-    constructor(address creditor_) payable Several(testSignatories())
+    constructor() Several(testSignatories())
     {
-        require(msg.sender == creditor_, "should have correct sender");
-        Assert.equal(msg.value, 51 ether, "should have correct value");
     }
 
     function testSignatories() internal pure returns (address[] memory)
@@ -33,6 +30,14 @@ contract SeveralTest is Several
         signatories[0] = TestsAccounts.getAccount(1); 
         signatories[1] = TestsAccounts.getAccount(2); 
         return signatories;
+    }
+
+    /// #sender: account-0
+    /// #value: 2000000000000000000
+    function testLend() public payable
+    {
+        Assert.equal(msg.sender, creditor, "should have correct sender");
+        Assert.equal(address(this).balance, 2 ether, "should have correct credit");
     }
 
     /// #sender: account-1
@@ -55,15 +60,19 @@ contract SeveralTest is Several
         Assert.equal(msg.sender, signatoryA, "should have correct sender");
         uint256 initial = address(msg.sender).balance;
         withdraw();
-        Assert.equal(address(signatoryA).balance, initial + 0 ether, "should be credited");
+        Assert.equal(address(signatoryA).balance, initial + 2 ether, "should be credited");
+        Assert.equal(debt[signatoryA], 1 ether, "should owe proportional debt");
+        Assert.equal(debt[signatoryB], 1 ether, "should owe proportional debt");
     }
 
     /// #sender: account-1
-    /// #value: 0
+    /// #value: 1000000000000000000
     function testRepay() public payable
     {
         Assert.equal(msg.sender, signatoryA, "should have correct sender");
-        Assert.equal(msg.value, 0 ether, "should send 1 ether");
+        Assert.equal(msg.value, 1 ether, "should send 1 ether");
         repay(signatoryA);
+        Assert.equal(debt[signatoryA], 0, "should have repaid debt");
+        Assert.equal(debt[signatoryB], 1 ether, "should have unchanged debt");
     }
 }

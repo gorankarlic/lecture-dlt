@@ -27,7 +27,8 @@ contract Reentrancy
      */
     function transfer(address payable recipient) public
     {
-        recipient.call{value: balances[msg.sender]}("");
+        (bool ok, ) = recipient.call{value: balances[msg.sender]}("");
+        require(ok);
         balances[msg.sender] = 0;
     }
 }

@@ -45,7 +45,8 @@ contract Rating
         grades.push(grade);
         if(grade == 1)
         {
-            payable(msg.sender).transfer(1 ether);
+            (bool ok, ) = payable(msg.sender).call{value: 1 ether}("");
+            require(ok);
         }
     }
 }

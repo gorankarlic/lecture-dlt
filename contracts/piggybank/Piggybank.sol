@@ -28,12 +28,13 @@ contract Piggybank
     }
 
     /**
-     * Empty the Piggybank by transfering saved funds to owner.
+     * Empty the Piggybank by transferring saved funds to owner.
      */
-    function payout() public
+    function payout() public payable
     {
         require(msg.sender == owner);
         require(address(this).balance >= 1 ether);
-        owner.transfer(address(this).balance);
+        (bool ok, ) = owner.call{value: address(this).balance}("");
+        require(ok);
     }
 }

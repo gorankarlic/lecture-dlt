@@ -18,7 +18,8 @@ contract FlashloanTest
     function testFund() public payable
     {
         Assert.equal(msg.value, 1e18, "should have correct value");
-        payable(address(flashloan)).transfer(msg.value);
+        (bool ok, ) = payable(address(flashloan)).call{value: msg.value}("");
+        require(ok);
         Assert.equal(address(flashloan).balance, 1e18, "should have correct balance");
     }
 
